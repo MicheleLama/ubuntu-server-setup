@@ -6,25 +6,35 @@ Script per la configurazione iniziale e il hardening di un server Ubuntu (20.04/
 
 - Aggiornamenti automatici e cleanup
 - Configurazione utente sicuro con accesso SSH
-- UFW + Fail2Ban per sicurezza
+- UFW + Fail2Ban per protezione base
 - Porta SSH personalizzata
-- Backup locale con rsync
+- Regole firewall personalizzate
+- Backup locale incrementale con rsync
+- 🧩 Esecuzione automatica di tutti i setup
 
 ## 📂 File inclusi
 
-- `setup.sh` → Script completo per configurazione iniziale
-- `ufw-rules.sh` → Regole firewall UFW
-- `rsync-backup.sh` → Backup incrementale automatico
+- `setup.sh` → Configurazione iniziale (utente, sicurezza, SSH)
+- `ufw-rules.sh` → Regole firewall UFW avanzate
+- `rsync-backup.sh` → Backup automatico con `rsync`
+- `install-all.sh` → Esegue tutti gli script sopra in sequenza
 
 ## 📌 Requisiti
 
 - Ubuntu Server 20.04 o superiore
 - Privilegi sudo/root
-- Connessione SSH
+- Connessione SSH abilitata
 
 ## 🚀 Uso rapido
 
 ```bash
+# Clona il repository
 git clone https://github.com/MicheleLama/ubuntu-server-setup.git
 cd ubuntu-server-setup
-sudo bash setup.sh
+
+# Rendi eseguibili tutti gli script
+chmod +x *.sh
+
+# Esegui la configurazione completa
+sudo ./install-all.sh
+
